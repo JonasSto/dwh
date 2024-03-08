@@ -3,4 +3,4 @@ Morten Kapusta
 Jonas Stoeckermann
 Maximilian Welzel
 
-https://github.com/JonasSto/dwh/tree/main
+https://github.com/JonasSto/dwh/tree/main/task_1
