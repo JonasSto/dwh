@@ -27,13 +27,12 @@ def on_message(client, userdata, message):
     # read message from broker and insert into table
     try:
         resp = json.loads(message.payload)
+        cur = conn.cursor()
+        cur.execute('INSERT INTO staging.messung(payload) VALUES (%s)', (json.dumps(resp),))
+        conn.commit()
+        cur.close()
     except:
         print('failed to parse message')
-
-    cur = conn.cursor()
-    cur.execute('INSERT INTO staging.messung(payload) VALUES (%s)', (json.dumps(resp),))
-    conn.commit()
-    cur.close()
 
 mqttc = mqtt.Client(
     mqtt.CallbackAPIVersion.VERSION2, 
