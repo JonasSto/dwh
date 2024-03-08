@@ -14,11 +14,15 @@ mqttc.connect("broker.hivemq.com", 1883, 60)
 
 # send message every 5 seconds
 while True:
-    message = {
-        "fin": "FFRZG4CB5CJQ2KQLU",
-        "zeit": int(time.time()),
-        "geschwindigkeit": random.randint(0, 50),
-    }
-    mqttc.publish("DataMgmt", json.dumps(message), qos=1)
-    # sleep for 5 seconds
-    time.sleep(5)
+    try:
+        message = {
+            "fin": "FFRZG4CB5CJQ2KQLU",
+            "zeit": int(time.time()),
+            "geschwindigkeit": random.randint(0, 50),
+        }
+        mqttc.publish("DataMgmt", json.dumps(message), qos=1)
+        # sleep for 5 seconds
+        time.sleep(5)
+    except KeyboardInterrupt:
+        print("exiting")
+        exit(0)
