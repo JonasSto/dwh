@@ -17,7 +17,7 @@ try:
         user="postgres",
         password=db_password,
         host="localhost",
-        port="15432"
+        port="5432"
     )
     print("Verbindung zur Datenbank hergestellt!")
 except psycopg2.OperationalError as e:
