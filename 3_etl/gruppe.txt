@@ -3,4 +3,4 @@ Morten Kapusta
 Jonas Stoeckermann
 Maximilian Welzel
 
-https://github.com/JonasSto/dwh/tree/main/etl_3
+https://github.com/JonasSto/dwh/tree/main/3_etl
