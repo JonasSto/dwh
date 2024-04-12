@@ -1,0 +1,6 @@
+Fabian Feldherr
+Morten Kapusta
+Jonas Stoeckermann
+Maximilian Welzel
+
+https://github.com/JonasSto/dwh/tree/main/etl_3
