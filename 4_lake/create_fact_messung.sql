@@ -10,8 +10,6 @@ CREATE TABLE mart.fact_messung (
 
 CREATE TABLE mart.fact_messung_2023 PARTITION OF mart.fact_messung FOR VALUES FROM (2023) TO (2024); 
 CREATE TABLE mart.fact_messung_2024 PARTITION OF mart.fact_messung FOR VALUES FROM (2024) TO (2025);
--- SELECT payload->>'fin' AS fin, payload->>'zeit' AS zeit, payload->>'geschwindigkeit' AS geschwindigkeit, payload->>'ort' AS ort
--- FROM staging.messung;
 
 INSERT INTO mart.fact_messung (dim_fahrzeug_id, gesendet, empfangen, geschwindigkeit)
 SELECT f.dim_fahrzeug_id, TO_TIMESTAMP((m.payload->>'zeit')::INT) AS gesendet, m.empfangen AS empfangen, (m.payload->>'geschwindigkeit')::INT AS geschwindigkeit
